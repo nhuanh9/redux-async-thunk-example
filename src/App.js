@@ -11,9 +11,8 @@ import {getPlayers} from "./services/playerService";
 
 function App() {
     const dispatch = useDispatch()
-    const players = useSelector((state) => {
-            console.log(state.players.players.data)
-            return state.players.players.data
+    const {players} = useSelector((state) => {
+            return state.players
         }
     )
     useEffect(() => {

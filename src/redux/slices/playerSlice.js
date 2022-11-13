@@ -10,13 +10,8 @@ const playerSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder.addCase(getPlayers.fulfilled, (state, {payload}) => {
-            state.players = payload;
+            state.players = payload.data;
         })
     }
 })
-
-export const {
-
-}
-    = playerSlice.actions;
 export default playerSlice.reducer;
