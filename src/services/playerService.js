@@ -12,6 +12,6 @@ export const addPlayer = createAsyncThunk (
     'players/addPlayer',
     async (data) => {
         const response = await axios.post(baseURL, data);
-        return  data;
+        return data;
     }
 )

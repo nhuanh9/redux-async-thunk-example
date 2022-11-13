@@ -13,30 +13,27 @@ export default function Players() {
     }, []);
     return (
         <div className={'row'}>
-            <div className="col-2">Side Bar</div>
-            <div className="col-10 mt-2">
-                <h1>List Players</h1>
-                <table className="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Champ</th>
-                        <th scope="col">KDA</th>
+            <h1>List Players</h1>
+            <table className="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Champ</th>
+                    <th scope="col">KDA</th>
+                </tr>
+                </thead>
+                <tbody>
+                {players.map((item, index) => (
+                    <tr key={index}>
+                        <th scope="row">{index + 1}</th>
+                        <td>{item.name}</td>
+                        <td>{item.champ}</td>
+                        <td>{item.kda}</td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    {players.map((item, index) => (
-                        <tr>
-                            <th scope="row">{index+1}</th>
-                            <td>{item.name}</td>
-                            <td>{item.champ}</td>
-                            <td>{item.kda}</td>
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-            </div>
+                ))}
+                </tbody>
+            </table>
         </div>
     )
 }

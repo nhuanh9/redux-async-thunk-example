@@ -13,7 +13,7 @@ const playerSlice = createSlice({
             state.players = payload.data;
         });
         builder.addCase(addPlayer.fulfilled, (state, {payload}) => {
-            state.players.push(payload.data);
+            state.players.push(payload);
         });
     }
 })
