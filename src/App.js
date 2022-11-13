@@ -10,27 +10,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {addPlayer, getPlayers} from "./services/playerService";
 
 function App() {
-    const dispatch = useDispatch()
-    const {players} = useSelector((state) => {
-            return state.players
-        }
-    )
-    useEffect(() => {
-        dispatch(getPlayers())
-    }, []);
     return (
         <div className="App">
-            {players.length}
-            <button onClick={() => {
-                dispatch(addPlayer({
-                    name: "NAL",
-                    champ: "Thresh",
-                    kda: "2/12/10",
-                    des: "Chưa trưởng thành"
-                }))
-            }}>
-                Ấn
-            </button>
             <Routes>
                 <Route path="/" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>

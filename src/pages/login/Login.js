@@ -1,9 +1,14 @@
 import React from "react";
+import {useNavigate} from "react-router";
 
 function Login() {
+    let navigate = useNavigate();
+    const handleLogin = () => {
+        navigate('user')
+    }
     return (
         <>
-            <h1>Login Page</h1>
+            <button onClick={handleLogin}>Login</button>
         </>
     )
 }
