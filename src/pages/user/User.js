@@ -1,9 +1,14 @@
 import React from "react";
 
+import {Outlet} from "react-router-dom";
+import './User.css';
+import Navbar from "../../components/Navbar/Navbar";
+
 function User() {
     return (
         <>
-            <h1>User Page</h1>
+            <Navbar></Navbar>
+            <Outlet></Outlet>
         </>
     )
 }
