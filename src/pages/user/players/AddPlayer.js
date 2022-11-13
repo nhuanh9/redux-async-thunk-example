@@ -7,8 +7,9 @@ import {addPlayer} from "../../../services/playerService";
 export default function AddPlayer() {
     const navigate = useNavigate();
     const dispatch = useDispatch()
-    const handleSubmit = (data) => {
-        dispatch(addPlayer(data))
+    const handleSubmit = async (data) => {
+       await dispatch(addPlayer(data));
+       navigate('/user')
     }
     return (
         <div className={'row'}>
