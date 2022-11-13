@@ -7,7 +7,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import User from "./pages/user/User";
 import {useDispatch, useSelector} from "react-redux";
-import {getPlayers} from "./services/playerService";
+import {addPlayer, getPlayers} from "./services/playerService";
 
 function App() {
     const dispatch = useDispatch()
@@ -21,6 +21,16 @@ function App() {
     return (
         <div className="App">
             {players.length}
+            <button onClick={() => {
+                dispatch(addPlayer({
+                    name: "NAL",
+                    champ: "Thresh",
+                    kda: "2/12/10",
+                    des: "Chưa trưởng thành"
+                }))
+            }}>
+                Ấn
+            </button>
             <Routes>
                 <Route path="/" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
