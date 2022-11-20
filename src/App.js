@@ -8,22 +8,33 @@ import User from "./pages/user/User";
 import Container from "@mui/material/Container";
 import Players from "./pages/user/players/Players";
 import AddPlayer from "./pages/user/players/AddPlayer";
+import {connect, useSelector} from 'react-redux'
 
 function App() {
+
+    const currentUser = useSelector(state =>{
+        return state.users.currentUser
+    });
     return (
         <div className="App">
             <div className="container-fluid">
-
                 <Routes>
                     <Route path="" element={<Login/>}/>
                     <Route path="register" element={<Register/>}/>
-                    <Route path="user" element={<User/>}>
-                        <Route path="" element={<Players/>}/>
-                        <Route path="add-player" element={<AddPlayer/>}/>
-                    </Route>
-                    <Route path="admin" element={<Admin/>}/>
-                    <Route path="*" element={<Login/>}/>
+                    {
+                        currentUser.username != undefined ?
+                            <Route path="user" element={<User/>}>
+                                <Route path="" element={<Players/>}/>
+                                <Route path="add-player" element={<AddPlayer/>}/>
+                            </Route>
+                            :
+                            <Route path="*" element={<Login/>}/>
+                            // <Route path="admin" element={<Admin/>}/>
+
+
+                    }
                 </Routes>
+
             </div>
         </div>
     );
