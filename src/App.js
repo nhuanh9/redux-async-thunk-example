@@ -12,8 +12,9 @@ import {connect, useSelector} from 'react-redux'
 
 function App() {
 
-    const currentUser = useSelector(state =>{
-        return state.users.currentUser
+    const currentUser = useSelector(state => {
+
+        return state.users.currentUser == null ? {} : state.users.currentUser
     });
     return (
         <div className="App">
@@ -29,7 +30,7 @@ function App() {
                             </Route>
                             :
                             <Route path="*" element={<Login/>}/>
-                            // <Route path="admin" element={<Admin/>}/>
+                        // <Route path="admin" element={<Admin/>}/>
 
 
                     }
