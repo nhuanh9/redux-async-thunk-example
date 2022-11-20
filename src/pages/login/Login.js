@@ -16,8 +16,8 @@ function Login() {
             .required("Firstname is required"),
     })
     const handleLogin = async (values) => {
-        await dispatch(loginUser(values))
-        navigate('user')
+        let data = await dispatch(loginUser(values))
+        navigate(data.payload.data.roles.length > 1 ? 'admin' : 'user')
     }
     return (
         <>

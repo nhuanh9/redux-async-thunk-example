@@ -24,13 +24,17 @@ function App() {
                     <Route path="register" element={<Register/>}/>
                     {
                         currentUser.username != undefined ?
-                            <Route path="user" element={<User/>}>
-                                <Route path="" element={<Players/>}/>
-                                <Route path="add-player" element={<AddPlayer/>}/>
-                            </Route>
+
+                            currentUser.roles.length > 1 ?
+                                <Route path="admin" element={<Admin/>}/>
+                                :
+
+                                <Route path="user" element={<User/>}>
+                                    <Route path="" element={<Players/>}/>
+                                    <Route path="add-player" element={<AddPlayer/>}/>
+                                </Route>
                             :
                             <Route path="*" element={<Login/>}/>
-                        // <Route path="admin" element={<Admin/>}/>
 
 
                     }
