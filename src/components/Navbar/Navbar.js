@@ -1,7 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router";
 
 function Navbar() {
+    let navigate = useNavigate();
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate('/')
+    }
     return (
         <>
             <div className="row">
@@ -44,6 +51,7 @@ function Navbar() {
                                        aria-label="Search"/>
                                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                             </form>
+                            <button className="ml-2 btn btn-outline-danger my-2 my-sm-0" type="submit" onClick={handleLogout}>Logout</button>
                         </div>
                     </nav>
                 </div>
