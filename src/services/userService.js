@@ -1,10 +1,10 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import axios from "axios";
+import customAxios from "./api";
 const baseURL = 'http://localhost:8000/'
 export const loginUser = createAsyncThunk (
     'user/login',
     async (data) => {
-        const response = await axios.post(baseURL+'login', data);
+        const response = await customAxios.post(baseURL+'login', data);
         return  response;
     }
 )

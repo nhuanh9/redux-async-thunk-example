@@ -13,6 +13,7 @@ const userSlice = createSlice({
     extraReducers: builder => {
         builder.addCase(loginUser.fulfilled, (state, {payload}) => {
             localStorage.setItem('currentUser', JSON.stringify(payload.data))
+            localStorage.setItem("access_token", payload.data.accessToken)
             state.currentUser = payload.data;
         });
     }
